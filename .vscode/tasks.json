@@ -18,6 +18,23 @@
             "problemMatcher": [
                 "$gulp-tsc"
             ]
+        },
+        {
+            "label": "Restore NuGet Packages",
+            "type": "shell",
+            "command": "mono ./tools/nuget/nuget.exe restore ./src/Sonarr.sln"
+        },
+        {
+            "label": "Build Backend",
+            "type": "shell",
+            "command": "msbuild /p:Platform=x86 /t:Build /p:AllowedReferenceRelatedFileExtensions=.pdb ./src/Sonarr.sln",
+            "dependsOn": [
+                "Restore NuGet Packages",
+                "Build Frontend"
+            ],
+            "problemMatcher": [
+                "$msCompile"
+            ]
         }
     ]
 }
