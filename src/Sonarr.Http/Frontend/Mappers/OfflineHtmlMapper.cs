@@ -7,11 +7,11 @@ using NzbDrone.Core.Configuration;
 
 namespace Sonarr.Http.Frontend.Mappers
 {
-    public class IndexHtmlMapper : HtmlMapperBase
+    public class OfflineHtmlMapper : HtmlMapperBase
     {
         private readonly IConfigFileProvider _configFileProvider;
 
-        public IndexHtmlMapper(IAppFolderInfo appFolderInfo,
+        public OfflineHtmlMapper(IAppFolderInfo appFolderInfo,
                                IDiskProvider diskProvider,
                                IConfigFileProvider configFileProvider,
                                Func<ICacheBreakerProvider> cacheBreakProviderFactory,
@@ -20,7 +20,7 @@ namespace Sonarr.Http.Frontend.Mappers
         {
             _configFileProvider = configFileProvider;
 
-            HtmlPath = Path.Combine(appFolderInfo.StartUpFolder, _configFileProvider.UiFolder, "index.html");
+            HtmlPath = Path.Combine(appFolderInfo.StartUpFolder, _configFileProvider.UiFolder, "offline.html");
             UrlBase = configFileProvider.UrlBase;
         }
 
@@ -33,11 +33,7 @@ namespace Sonarr.Http.Frontend.Mappers
         {
             resourceUrl = resourceUrl.ToLowerInvariant();
 
-            return !resourceUrl.StartsWith("/content") &&
-                   !resourceUrl.StartsWith("/mediacover") &&
-                   !resourceUrl.Contains(".") &&
-                   !resourceUrl.StartsWith("/login") &&
-                   !resourceUrl.StartsWith("/offline");
+            return resourceUrl.StartsWith("/offline");
         }
     }
 }
