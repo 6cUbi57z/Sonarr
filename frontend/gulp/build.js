@@ -11,7 +11,8 @@ gulp.task('build',
       'copyHtml',
       'copyFonts',
       'copyImages',
-      'copyRobots'
+      'copyRobots',
+      'copyServiceWorker'
     )
   )
 );

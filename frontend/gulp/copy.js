@@ -40,3 +40,11 @@ gulp.task('copyRobots', () => {
     .pipe(gulp.dest(paths.dest.root))
     .pipe(livereload());
 });
+
+gulp.task('copyServiceWorker', () => {
+  return gulp.src(paths.src.serviceWorker, { base: paths.src.root })
+    .pipe(cache('copyServiceWorker'))
+    .pipe(print())
+    .pipe(gulp.dest(paths.dest.root))
+    .pipe(livereload());
+});

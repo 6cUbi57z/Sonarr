@@ -14,6 +14,7 @@ function watch() {
   gulpWatch(`${paths.src.fonts}**/*.*`, gulp.series('copyFonts'));
   gulpWatch(`${paths.src.images}**/*.*`, gulp.series('copyImages'));
   gulpWatch(paths.src.robots, gulp.series('copyRobots'));
+  gulpWatch(paths.src.serviceWorker, gulp.series('copyServiceWorker'));
 }
 
 gulp.task('watch', gulp.series('build', watch));

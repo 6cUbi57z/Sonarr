@@ -1,5 +1,6 @@
 {
-    "name": "",
+    "name": "Sonarr",
+    "short_name": "Sonarr",
     "icons": [
         {
             "src": "/Content/Images/Icons/android-chrome-192x192.png",
@@ -12,7 +13,8 @@
             "type": "image/png"
         }
     ],
-    "theme_color": "#3a3f51",
-    "background_color": "#3a3f51",
-    "display": "standalone"
+    "theme_color": "#2193b5",
+    "background_color": "#2193b5",
+    "display": "standalone",
+    "start_url": "/"
 }
